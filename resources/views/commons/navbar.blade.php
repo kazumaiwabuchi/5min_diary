@@ -11,9 +11,9 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 {{-- ユーザ登録ページへのリンク --}}
-               
+                    <li>{!! link_to_route('signup.get', '新規登録', [], ['class' => 'nav-link']) !!}</li>
                     {{-- ログインページへのリンク --}}
-                   
+                    <li><a href="#">Login</a></li>
             </ul>
         </div>
     </nav>
