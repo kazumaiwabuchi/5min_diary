@@ -64,7 +64,13 @@ class DiariesController extends Controller
      */
     public function show($id)
     {
-        //
+         // idの値でメッセージを検索して取得
+        $diary = Diary::findOrFail($id);
+
+        // メッセージ詳細ビューでそれを表示
+        return view('diaries.show', [
+            'diary' => $diary,
+        ]);
     }
 
     /**
