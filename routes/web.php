@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', "DiariesController@index");
+
+Route::resource('diaries',"DiariesController",["only" => ["show","create"]]);
