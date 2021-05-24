@@ -1,12 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
-
- {{-- メッセージ作成ページへのリンク --}}
-    <h1>日記一覧</h1>
-     {!! link_to_route('diaries.create', '日記を書く', [], ['class' => 'btn btn-primary']) !!}
-
-
     @if (count($diaries) > 0)
         <table class="table table-striped">
             <thead>
@@ -29,5 +20,3 @@
             </tbody>
         </table>
     @endif
-
-@endsection

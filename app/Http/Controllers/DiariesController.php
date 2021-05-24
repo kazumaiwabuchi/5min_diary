@@ -17,7 +17,7 @@ class DiariesController extends Controller
     {
         $diaries = Diary::all();//投稿を全て取得
         
-        return view('diaries.index', [ //投稿をindex.blade.phpで一覧表示
+        return view('welcome', [ //投稿をindex.blade.phpで一覧表示
             'diaries' => $diaries,
         ]);
     }
@@ -45,6 +45,14 @@ class DiariesController extends Controller
      */
     public function store(Request $request)
     {
+        
+        // バリデーション
+        $request->validate([
+            'today_event' => 'required|max:255',
+            'content' => 'required|max:500',
+            'tommorow_event' => 'required|max:255',
+        ]);
+        
         //日記を作成
         $diary = new Diary;
         $diary->today_event = $request->today_event;    
