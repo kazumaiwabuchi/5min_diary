@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Diary;
+
 class DiariesController extends Controller
 {
     /**
@@ -13,7 +15,11 @@ class DiariesController extends Controller
      */
     public function index()
     {
-        //
+        $diaries = Diary::all();//投稿を全て取得
+        
+        return view('diaries.index', [ //投稿をindex.blade.phpで一覧表示
+            'diaries' => $diaries,
+        ]);
     }
 
     /**
