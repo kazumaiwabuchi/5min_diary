@@ -29,7 +29,12 @@ class DiariesController extends Controller
      */
     public function create()
     {
-        //
+        $diary = new Diary;
+
+        // メッセージ作成ビューを表示
+        return view('diaries.create', [
+            'diary' => $diary,
+        ]);
     }
 
     /**
@@ -40,7 +45,15 @@ class DiariesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //日記を作成
+        $diary = new Diary;
+        $diary->today_event = $request->today_event;    
+        $diary->content = $request->content;
+        $diary->tommorow_event = $request->tommorow_event;
+        $diary->save();
+
+        // トップページへリダイレクトさせる
+        return redirect('/');
     }
 
     /**
