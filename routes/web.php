@@ -13,4 +13,4 @@
 
 Route::get('/', "DiariesController@index");
 
-Route::resource('diaries',"DiariesController",["only" => ["show","create"]]);
+Route::resource('diaries',"DiariesController",["only" => ["show","create","store"]]);
