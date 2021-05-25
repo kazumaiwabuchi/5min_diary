@@ -23,4 +23,8 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 //トップページ
 Route::get('/', "DiariesController@index");
 
+//認証付きルーティング
+Route::group(['middleware' => ['auth']], function () {
+    Route::resource('users', 'UsersController', ['only' => ['show']]);//MyPageのルーティング
+});
 Route::resource('diaries',"DiariesController",["only" => ["show","create","store"]]);
