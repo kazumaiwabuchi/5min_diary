@@ -36,4 +36,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    //Diaryモデルとの一対多を定義、このユーザが所有する日記
+    public function diaries()
+    {
+        return $this->hasMany(Diary::class);
+    }
 }
