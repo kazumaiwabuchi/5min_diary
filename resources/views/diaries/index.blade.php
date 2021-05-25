@@ -1,4 +1,4 @@
-//if(count($diaries) >0)を入れていたが、$diariesがカウントできないというエラーが出たので一旦削除
+{{--if(count($diaries) >0)を入れていたが、$diariesがカウントできないというエラーが出たので一旦削除--}}
         <table class="table table-striped">
             <thead>
                 <tr>
