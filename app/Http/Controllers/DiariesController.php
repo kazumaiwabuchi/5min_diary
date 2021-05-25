@@ -53,14 +53,24 @@ class DiariesController extends Controller
             'tommorow_event' => 'required|max:255',
         ]);
         
-        //日記を作成
-        $diary = new Diary;
-        $diary->today_event = $request->today_event;    
-        $diary->content = $request->content;
-        $diary->tommorow_event = $request->tommorow_event;
-        $diary->save();
-
-        // トップページへリダイレクトさせる
+        if (\Auth::check()) {
+            // もし認証済みユーザなら、そのユーザ（閲覧者）の投稿として作成（リクエストされた値をもとに作成）
+            $request->user()->diaries()->create([
+                "today_event" =>$request->today_event,
+                'content' => $request->content,
+                "tommorow_event"=>$request ->tommorow_event,
+            ]);
+    
+            
+        }
+        else{
+            Diary::create([
+                "today_event" =>$request->today_event,
+                'content' => $request->content,
+                "tommorow_event"=>$request ->tommorow_event,
+                ]);
+        }
+        //トップページにリダイレクト
         return redirect('/');
     }
 
