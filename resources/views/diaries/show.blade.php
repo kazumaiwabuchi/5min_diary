@@ -17,6 +17,10 @@
             <th>明日やる事</th>
             <td>{{ $diary->tommorow_event }}</td>
         </tr>
+        <tr>
+            <th>投稿日時</th>
+            <td>{{ $diary->created_at }}</td>
+        </tr>
     </table>
 
 @endsection

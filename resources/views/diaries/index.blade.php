@@ -6,6 +6,7 @@
                     <th>今日の出来事</th>
                     <th>今日の感想</th>
                     <th>明日やる事</th>
+                    <th>投稿日時</th>
                 </tr>
             </thead>
             <tbody>
@@ -15,6 +16,7 @@
                     <td>{{ $diary->today_event }}</td>
                     <td>{{ $diary->content }}</td>
                     <td>{{ $diary->tommorow_event }}</td>
+                    <td>{{ $diary ->created_at }}</td>
                 </tr>
                 @endforeach
             </tbody>
