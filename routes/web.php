@@ -26,5 +26,6 @@ Route::get('/', "DiariesController@index");
 //認証付きルーティング
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UsersController', ['only' => ['show']]);//MyPageのルーティング
+    Route::delete('diaries/{id}', 'DiariesController@destroy')->name('diaries.destroy');//投稿削除のルーティング、ログイン時のみ可能な操作にしたいので認証付きルーティングに入れる
 });
 Route::resource('diaries',"DiariesController",["only" => ["show","create","store"]]);

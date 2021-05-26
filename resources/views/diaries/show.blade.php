@@ -22,5 +22,14 @@
             <td>{{ $diary->created_at }}</td>
         </tr>
     </table>
+    
+    <div>
+        @if (Auth::id() == $diary->user_id)
+            {{-- 投稿削除ボタンのフォーム --}}
+            {!! Form::open(['route' => ['diaries.destroy', $diary->id], 'method' => 'delete']) !!}
+                {!! Form::submit('日記を削除する', ['class' => 'btn btn-danger btn-sm']) !!}
+            {!! Form::close() !!}
+        @endif
+    </div>
 
 @endsection

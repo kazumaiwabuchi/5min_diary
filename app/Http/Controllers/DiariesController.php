@@ -85,7 +85,7 @@ class DiariesController extends Controller
          // idの値でメッセージを検索して取得
         $diary = Diary::findOrFail($id);
 
-        // メッセージ詳細ビューでそれを表示
+        // 日記詳細ビューでそれを表示
         return view('diaries.show', [
             'diary' => $diary,
         ]);
@@ -122,6 +122,17 @@ class DiariesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //idの値で投稿を検索して取得
+        $diary = Diary::findOrFail($id);
+        
+        //閲覧者がその投稿の所有者である場合は、投稿を削除
+        if(\Auth::id() === $diary->user_id){
+            $diary ->delete();
+        };
+        //前のページへリダイレクト、しようとしたら404notfoundが出るので、一旦トップに戻すよう設定
+        //return back();
+        
+        //トップページにリダイレクト
+        return redirect('/');
     }
 }
