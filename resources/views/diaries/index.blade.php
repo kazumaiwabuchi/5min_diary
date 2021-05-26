@@ -21,3 +21,5 @@
                 @endforeach
             </tbody>
         </table>
+        {{--ページネーションのリンク--}}
+        {{ $diaries->links() }}
