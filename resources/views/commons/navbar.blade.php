@@ -1,5 +1,5 @@
 <header class="mb-4">
-    <nav class="navbar navbar-expand-sm navbar-light "style="background-color: 	#40E0D0;">
+    <nav class="navbar navbar-expand-sm navbar-light fixed-top "style="background-color: 	#40E0D0;">
         {{-- トップページへのリンク --}}
         <a class="navbar-brand" href="/">5min-Diary</a>
 

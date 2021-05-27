@@ -5,9 +5,10 @@
         <title>5min-Diary</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+         <link rel="stylesheet" href="{{ asset('css/style.css') }}">//スタイルシートを適用できる
     </head>
 
-    <body>
+    <body style="padding-top: 5rem">{{--ナビゲーションバーと被らないよう、上に余白を設ける--}}
 
         {{-- ナビゲーションバー --}}
         @include('commons.navbar')
