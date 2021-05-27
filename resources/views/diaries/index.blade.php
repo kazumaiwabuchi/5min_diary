@@ -1,3 +1,4 @@
+<hr>
 @if (count($diaries) > 0)
         @foreach($diaries as $diary)
         <div>
