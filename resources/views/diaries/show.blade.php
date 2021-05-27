@@ -24,7 +24,7 @@
     </table>
     
     <div>
-        @if (Auth::id() == $diary->user_id)
+        @if ($diary->user_id != null && Auth::id() == $diary->user_id){{--この投稿のuser_idがnullじゃない且つ、閲覧者がこの投稿の所有者の場合は、削除ボタンを表示--}}
             {{-- 投稿削除ボタンのフォーム --}}
             {!! Form::open(['route' => ['diaries.destroy', $diary->id], 'method' => 'delete']) !!}
                 {!! Form::submit('日記を削除する', ['class' => 'btn btn-danger btn-sm']) !!}
