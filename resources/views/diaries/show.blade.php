@@ -5,7 +5,7 @@
 
 
         <div>
-            <h6>投稿日時:{{ $diary ->created_at }}</h6>
+            <h6 class="text-right">投稿日時:{{ $diary ->created_at }}</h6>
             <h6>「今日の出来事」</h6>
             <p>{!! nl2br(e($diary->today_event)) !!}</p>
             <h6>「今日の感想」</h6>
