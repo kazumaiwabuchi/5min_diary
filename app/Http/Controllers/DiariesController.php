@@ -15,7 +15,7 @@ class DiariesController extends Controller
      */
     public function index()
     {
-        $diaries = Diary::orderBy('created_at', 'desc')->paginate(10);//全投稿を降順で取得
+        $diaries = Diary::orderBy('created_at', 'desc')->paginate(6);//全投稿を降順で取得
         
         return view('welcome', [ //投稿をindex.blade.phpで一覧表示
             'diaries' => $diaries,

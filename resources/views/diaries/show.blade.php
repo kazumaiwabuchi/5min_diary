@@ -4,24 +4,16 @@
 @section('content')
 
 
-    <table class="table table-bordered">
-        <tr>
-            <th>今日の出来事</th>
-            <td>{{ $diary->today_event }}</td>
-        </tr>
-        <tr>
-            <th>今日の感想</th>
-            <td>{{ $diary->content }}</td>
-        </tr>
-        <tr>
-            <th>明日やる事</th>
-            <td>{{ $diary->tommorow_event }}</td>
-        </tr>
-        <tr>
-            <th>投稿日時</th>
-            <td>{{ $diary->created_at }}</td>
-        </tr>
-    </table>
+        <div>
+            <h6>投稿日時:{{ $diary ->created_at }}</h6>
+            <h6>「今日の出来事」</h6>
+            <p>{!! nl2br(e($diary->today_event)) !!}</p>
+            <h6>「今日の感想」</h6>
+            <p>{!! nl2br(e($diary->content)) !!}</p>
+            <h6>「明日やる事」</h6>
+            <p>{!! nl2br(e($diary->tommorow_event)) !!}</p>
+            {{--"{{ }}"で囲うと、htmlspecialchars関数に通して出力される。"{!! !!}"で囲うとそのまま出力。e()はエスケープ関数で、htmlspecialcharsと同じような働きをする。xss 攻撃への対策。--}}
+        </div>
     
     <div>
         @if ($diary->user_id != null && Auth::id() == $diary->user_id){{--この投稿のuser_idがnullじゃない且つ、閲覧者がこの投稿の所有者の場合は、削除ボタンを表示--}}
