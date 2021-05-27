@@ -8,15 +8,15 @@
             {!! Form::model($diary, ['route' => 'diaries.store']) !!}
                 <div class="form-group">
                     {!! Form::label('today_event', '今日の出来事:') !!}
-                    {!! Form::text('today_event', null, ['class' => 'form-control']) !!}
+                    {!! Form::textarea('today_event', null, ['class' => 'form-control','placeholder' => '255文字以内',"rows"=>"3","maxlength"=>"255"]) !!}{{--'placeholder'で、テキストエリア内に薄い文字を入れられる--}}
                 </div>
                 <div class="form-group">
                     {!! Form::label('content', '今日の感想:') !!}
-                    {!! Form::text('content', null, ['class' => 'form-control']) !!}
+                    {!! Form::textarea('content', null, ['class' => 'form-control','placeholder' => '500文字以内',"maxlength"=>"500"]) !!}
                 </div>
                 <div class="form-group">
                     {!! Form::label('tommorow_event', '明日やる事:') !!}
-                    {!! Form::text('tommorow_event', null, ['class' => 'form-control']) !!}
+                    {!! Form::textarea('tommorow_event', null, ['class' => 'form-control','placeholder' => '255文字以内',"rows"=>"3","maxlength"=>"255"]) !!}
                 </div>
                 {!! Form::submit("投稿する", ['class' => 'btn btn-primary']) !!}
             {!! Form::close() !!}
