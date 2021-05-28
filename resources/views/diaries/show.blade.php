@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<button class="btn btn-info"  type="button" onClick="history.back()">戻る</button>
 
         <div>
             <h6 class="text-right">投稿日時:{{ $diary ->created_at }}</h6>
